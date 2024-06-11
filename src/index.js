@@ -1,49 +1,13 @@
 const plugin = require("tailwindcss/plugin");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 module.exports = plugin.withOptions(
-  function (options) {
-    const className = options ? options.className : "markdown";
+  function () {
+    // const className = options ? options.className : "markdown";
 
-    return function ({
-      addBase,
-      addUtilities,
-      matchUtilities,
-      addComponents,
-      addVariant,
-      theme,
-    }) {
-      /**
-       * Add base styles
-       * https://tailwindcss.com/docs/plugins#adding-base-styles
-       */
-
-      addBase({
-        h1: { fontSize: theme("fontSize.2xl") },
-        h2: { fontSize: theme("fontSize.xl") },
-      });
-
-      /**
-       * Static utilities
-       * https://tailwindcss.com/docs/plugins#static-utilities
-       */
-
-      addUtilities({
-        ".content-hidden": {
-          "content-visibility": "hidden",
-        },
-        ".content-visible": {
-          "content-visibility": "visible",
-        },
-        ".glow": {
-          background: "rgba(134, 255, 0, 1)",
-          "box-shadow": `0 0 20px rgba(134, 255, 0, 1),
-                        0 0 40px rgba(134, 255, 0, 1),
-                        0 0 60px rgba(134, 255, 0, 1),
-                        0 0 80px rgba(134, 255, 0, 1),
-                        0 0 0 8px rgba(134, 255, 0, 0.1)`,
-        },
-      });
-
+    return function ({ matchUtilities, theme }) {
       /**
        * Dynamic utilities
        * https://tailwindcss.com/docs/plugins#dynamic-utilities
@@ -51,55 +15,47 @@ module.exports = plugin.withOptions(
 
       matchUtilities(
         {
-          tab: (value) => ({
-            tabSize: value,
-          }),
+          drama: (value) => {
+            return {
+              "box-shadow": `0px 0px var(--drama-blur) var(--drama-spread) ${value}`,
+            };
+          },
         },
         {
-          values: theme("tabSize"),
+          values: flattenColorPalette(theme("colors")),
+          type: "color",
         }
       );
 
-      /**
-       * Adding components
-       * https://tailwindcss.com/docs/plugins#adding-components
-       */
+      matchUtilities(
+        {
+          drama: (spread) => {
+            const spreadNumber = Number(spread.replace("rem", ""));
 
-      addComponents({
-        [`.${className}`]: {
-          padding: ".5rem 1rem",
-          fontWeight: "600",
+            let blur;
+
+            if (spreadNumber <= 0.25) blur = `${spreadNumber * 15}rem`;
+            else if (spreadNumber <= 1) blur = `${spreadNumber * 10}rem`;
+            else blur = `${spreadNumber * 7}rem`;
+
+            return {
+              "--drama-spread": spread,
+              "--drama-blur": blur,
+            };
+          },
         },
-      });
-
-      /**
-       * Add variants
-       * https://tailwindcss.com/docs/plugins#adding-variants
-       */
-
-      // Simple
-      addVariant("optional", "&:optional");
-
-      // Array
-      addVariant("hocus", ["&:hover", "&:focus"]);
-
-      // @media queries
-      addVariant("supports-grid", "@supports (display: grid)");
+        {
+          values: theme("margin"),
+        }
+      );
     };
   },
-  function (options) {
+  function () {
     /**
      * Provide default values
      */
     return {
-      theme: {
-        tabSize: {
-          1: "1",
-          2: "2",
-          4: "4",
-          8: "8",
-        },
-      },
+      theme: {},
     };
   }
 );
