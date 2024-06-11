@@ -1,9 +1,7 @@
-const plugin = require("tailwindcss/plugin");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+import plugin from "tailwindcss/plugin";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
-module.exports = plugin.withOptions(
+const twGlow = plugin.withOptions(
   function () {
     // const className = options ? options.className : "markdown";
 
@@ -59,3 +57,5 @@ module.exports = plugin.withOptions(
     };
   }
 );
+
+export default twGlow;

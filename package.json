@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "A tailwind css plugin for making your elements glow",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "release": "np",
     "dev": "vitest",
