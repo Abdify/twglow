@@ -15,7 +15,7 @@ This is a tailwind css plugin for making your elements glow.
 
 - Drama Effect: use the `drama` class. e.g. `drama-green-500 drama-20`
 
-[![Drama Effect][drama-demo-1]]
+![Drama Effect][drama-demo-1]
 
 ### Getting started
 

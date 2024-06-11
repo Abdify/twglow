@@ -15,7 +15,10 @@ const twGlow = plugin.withOptions(
         {
           drama: (value) => {
             return {
-              "box-shadow": `0px 0px var(--drama-blur) var(--drama-spread) ${value}`,
+              // filter: `drop-shadow(0px 0px var(--drama-spread) ${value})`,
+              "--tw-drop-shadow": `drop-shadow(0px 0px var(--drama-spread) ${value})`,
+              filter:
+                "var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)",
             };
           },
         },

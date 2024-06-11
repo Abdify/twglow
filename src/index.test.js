@@ -47,15 +47,22 @@ test("matchUtilities", () => {
   const config = {
     content: [
       {
-        raw: String.raw`<div class="drama-green-500"></div>`,
+        raw: String.raw`
+        <div class="drama-yellow-500 drama-20"></div>
+        `,
       },
     ],
   };
 
   return run(config).then((result) => {
     expect(result.css).toMatchCss(String.raw`
-      .drama-green-500 {
-        box-shadow: 0px 0px var(--drama-blur) var(--drama-spread) #22c55e;
+      .drama-yellow-500 {
+        --tw-drop-shadow: drop-shadow(0px 0px var(--drama-spread) #eab308);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+      }
+      .drama-20 {
+        --drama-spread: 5rem;
+        --drama-blur: 35rem;
       }
     `);
   });
