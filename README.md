@@ -13,7 +13,9 @@ This is a tailwind css plugin for making your elements glow.
 
 ### Features
 
-- use the `.glow` class to glow with default color
+- Drama Effect: use the `drama` class. e.g. `drama-green-500 drama-20`
+
+[![Drama Effect][drama-demo-1]]
 
 ### Getting started
 
@@ -26,14 +28,22 @@ npm i twglow
 Then add the plugin to your `tailwind.config.js` file:
 
 ```js
+import twGlow from "twglow";
+
+export default {
+  // ...
+  plugins: [twGlow],
+};
+```
+
+Or if you use common JS, then:
+
+```js
 module.exports = {
   theme: {
     // ...
   },
-  plugins: [
-    require("twglow"),
-    // ...
-  ],
+  plugins: [require("twglow")],
 };
 ```
 
@@ -41,7 +51,7 @@ module.exports = {
 
 Use the provided examples.
 
-## Configuration
+<!-- ## Configuration
 
 If your plugin is configurable, show users how to configure it.
 
@@ -55,7 +65,8 @@ module.exports = {
     // ...
   ],
 };
-```
+``` -->
 
 [license]: ./LICENSE
 [license-shield]: https://img.shields.io/github/license/abdify/twglow?color=0e9f6e
+[drama-demo-1]: ./demo/drama-demo-1.png
