@@ -1,6 +1,6 @@
 {
   "name": "twglow",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A tailwind css plugin for making your elements glow",
   "main": "src/index.js",
   "type": "module",
