@@ -32,7 +32,13 @@ This is a tailwind css plugin for making your elements glow.
 Install the npm library
 
 ```sh
-npm i twglow
+npm i -D twglow
+```
+
+Or, if you are using yarn:
+
+```sh
+yarn add -D twglow
 ```
 
 Then add the plugin to your `tailwind.config.js` file:
