@@ -21,6 +21,12 @@ const twGlow = plugin.withOptions(
                 "var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)",
             };
           },
+          "border-glow": (value) => {
+            return {
+              "border-color": value,
+              "box-shadow": `inset 0px 0px 0.5em 0px ${value}, 0px 0px 0.5em 0px ${value}`,
+            };
+          },
         },
         {
           values: flattenColorPalette(theme("colors")),

@@ -49,6 +49,7 @@ test("matchUtilities", () => {
       {
         raw: String.raw`
         <div class="drama-yellow-500 drama-20"></div>
+        <div class="border-glow-blue-500"></div>
         `,
       },
     ],
@@ -56,6 +57,10 @@ test("matchUtilities", () => {
 
   return run(config).then((result) => {
     expect(result.css).toMatchCss(String.raw`
+      .border-glow-blue-500 {
+        border-color: #3b82f6;
+        box-shadow: inset 0px 0px 0.5em 0px #3b82f6, 0px 0px 0.5em 0px #3b82f6;
+      }
       .drama-yellow-500 {
         --tw-drop-shadow: drop-shadow(0px 0px var(--drama-spread) #eab308);
         filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
