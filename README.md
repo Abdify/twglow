@@ -17,6 +17,12 @@ This is a tailwind css plugin for making your elements glow.
 
 ![Drama Effect][drama-demo-1]
 
+- Border Glow Effect: use the `border-glow` class. e.g. `border-glow-blue-500`
+
+![Border Glow Effect][border-glow-1]
+
+- More coming soon in sha Allah...
+
 ### Getting started
 
 Install the npm library
@@ -70,3 +76,4 @@ module.exports = {
 [license]: ./LICENSE
 [license-shield]: https://img.shields.io/github/license/abdify/twglow?color=0e9f6e
 [drama-demo-1]: ./demo/drama-demo-1.png
+[border-glow-1]: ./demo/border-glow-1.png
