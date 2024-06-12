@@ -1,0 +1,7 @@
+{
+	"name": "twglow",
+	"np": {
+		"contents": "src",
+        "testScript": "test"
+	}
+}
