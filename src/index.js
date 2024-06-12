@@ -27,6 +27,9 @@ const twGlow = plugin.withOptions(
               "box-shadow": `inset 0px 0px 0.5em 0px ${value}, 0px 0px 0.5em 0px ${value}`,
             };
           },
+          "text-glow": (value) => ({
+            "text-shadow": `0 0 0.125em ${value}, 0 0 0.45em ${value}`,
+          }),
         },
         {
           values: flattenColorPalette(theme("colors")),

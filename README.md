@@ -21,6 +21,10 @@ This is a tailwind css plugin for making your elements glow.
 
 ![Border Glow Effect][border-glow-1]
 
+- Text Glow Effect: use the `text-glow` class. e.g. `text-glow-blue-500`
+
+![Border Glow Effect][text-glow-1]
+
 - More coming soon in sha Allah...
 
 ### Getting started
@@ -77,3 +81,4 @@ module.exports = {
 [license-shield]: https://img.shields.io/github/license/abdify/twglow?color=0e9f6e
 [drama-demo-1]: ./demo/drama-demo-1.png
 [border-glow-1]: ./demo/border-glow-1.png
+[text-glow-1]: ./demo/text-glow-1.png

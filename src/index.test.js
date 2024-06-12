@@ -43,12 +43,36 @@ function run(config, css = "@tailwind utilities", plugin = tailwindcss) {
   });
 }
 
-test("matchUtilities", () => {
+test("Drama Effect", () => {
   const config = {
     content: [
       {
         raw: String.raw`
         <div class="drama-yellow-500 drama-20"></div>
+        `,
+      },
+    ],
+  };
+
+  return run(config).then((result) => {
+    expect(result.css).toMatchCss(String.raw`
+      .drama-yellow-500 {
+        --tw-drop-shadow: drop-shadow(0px 0px var(--drama-spread) #eab308);
+        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+      }
+      .drama-20 {
+        --drama-spread: 5rem;
+        --drama-blur: 35rem;
+      }
+    `);
+  });
+});
+
+test("Border Glow Effect", () => {
+  const config = {
+    content: [
+      {
+        raw: String.raw`
         <div class="border-glow-blue-500"></div>
         `,
       },
@@ -61,13 +85,25 @@ test("matchUtilities", () => {
         border-color: #3b82f6;
         box-shadow: inset 0px 0px 0.5em 0px #3b82f6, 0px 0px 0.5em 0px #3b82f6;
       }
-      .drama-yellow-500 {
-        --tw-drop-shadow: drop-shadow(0px 0px var(--drama-spread) #eab308);
-        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-      }
-      .drama-20 {
-        --drama-spread: 5rem;
-        --drama-blur: 35rem;
+    `);
+  });
+});
+
+test("Text Glow Effect", () => {
+  const config = {
+    content: [
+      {
+        raw: String.raw`
+        <div class="text-glow-blue-500"></div>
+        `,
+      },
+    ],
+  };
+
+  return run(config).then((result) => {
+    expect(result.css).toMatchCss(String.raw`
+      .text-glow-blue-500 {
+        text-shadow: 0 0 0.125em #3b82f6, 0 0 0.45em #3b82f6;
       }
     `);
   });
