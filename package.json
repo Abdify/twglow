@@ -4,6 +4,9 @@
   "description": "A tailwind css plugin for making your elements glow",
   "main": "src/index.js",
   "type": "module",
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "release": "np",
     "dev": "vitest",
