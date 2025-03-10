@@ -41,6 +41,12 @@ Or, if you are using yarn:
 yarn add -D twglow
 ```
 
+Or, if you are using pnpm:
+```sh
+pnpm add -D twglow
+```
+
+
 Then add the plugin to your `tailwind.config.js` file:
 
 ```js
